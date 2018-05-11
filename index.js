@@ -1,43 +1,58 @@
-var word1 = "code" 
-var word2 = "break"
-var word3 = "door" 
-var word4 = "friend" 
-var word5 = "smile" 
-var word6 = "create" 
-var word7 = "fast" 
-var word8 = "chair" 
 
-var hint1 = "Decipher"
-var hint2 = "___ a Leg"
-var hint3 = "Opposite of Foe"
-var hint4 = "Knob"
-var hint5 = "Teeth"
-var hint6 = "Opposite of Destroy"
-var hint7 = "Slow"
-var hint8 = "Sit"
+// *******************************
+ //Word and Hint Function
+
+wordArray = []
+hintsArray = []
+
+function Word (word,hint){
+  var word = wordArray.push(word)
+  var hint = hintsArray.push(hint)
+}
+
+var one = new Word ("code", "Decipher") 
+var two = new Word ("break", "___ a Leg")
+var three = new Word ("door", "Knob" )
+var four = new Word ("friend", "Opposite of Foe")
+var five = new Word ("smile", "Teeth")
+var six = new Word ("create", "Opposite of Destroy") 
+var seven = new Word ("fast", "Slow")
+var eight = new Word ("chair", "Sit")
 
 
-var randomWord= ""
-var randomHint= ""
+//Create Random Function
+function random () {
+    return (Math.floor(Math.random() * wordArray.length));
+}
 
-// function genWord () {
-   var words= [word1, word2, word3, word4, word5, word6, word7, word8]
-   var hints=[hint1, hint2, hint3, hint4, hint5, hint6, hint7, hint8 ]
-   var randI=Math.floor(Math.random() * words.length)
-   randomWord =(words[randI])
-   randomHint= (hints[randI])
+var randomNum = random()
 
- // }
 
- console.log(randomWord)
+// Create Split Word Function
+splitWord = (wordArray[randomNum].split(''))
+   // console.log(splitWord)
+splitWordCompare = (wordArray[randomNum].split(''))
 
+
+// Create StringDash Function
+function stringDash(splitWord){
+  for (let i = 0; i<splitWord.length; i++) {
+    splitWord.splice(wordArray.indexOf(wordArray[i]), 1, '_');
+  }
+  return splitWord.join (" ");
+}
+
+
+
+
+  
 
 
 // Alphabet Box
 
 
 var wrapper = document.createElement('div')
-wrapper.style.width = "40%"
+wrapper.style.width = "29%"
 wrapper.style.margin = '0 auto'
 wrapper.style.border = "2px solid red"
 // wrapper.style.display = "grid"
@@ -53,10 +68,6 @@ document.body.appendChild(wrapper)
 var alphabet = ['A', 'B', 'C', 'D', 'E', 'F','G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 
 
-// var buttons = function () {
-// 	myButtons = document.getElementById('buttons')
-// 	letters = document.createElement('ul');
-
 	for (i = 0; i < 26; i++){
 		var alpha = document.createElement('div')
 		alpha.style.width = '40px'
@@ -67,10 +78,6 @@ var alphabet = ['A', 'B', 'C', 'D', 'E', 'F','G', 'H', 'I', 'J', 'K', 'L', 'M', 
 		alpha.classList.add('a')
 		// alpha.className = 'a'
 		alpha.innerHTML = alphabet[i]
-		// alpha.style.gridColumnStart = '2'
-		// alpha.style.gridColumnEnd = '3'
-		// alpha.style.gridRowStart = '2'
-		// alpha.style.gridRowEnd = '3'
 		wrapper.appendChild(alpha)
 
 		var buttons = document.getElementsByClassName('a')
@@ -79,7 +86,11 @@ var alphabet = ['A', 'B', 'C', 'D', 'E', 'F','G', 'H', 'I', 'J', 'K', 'L', 'M', 
 		})
 	}
 
-
+// document.onkeydown = function(event) {
+//     var key_press = String.fromCharCode(event.keyCode);
+//    document.getElementById('wordBox').innerHTML = key_press;
+ 
+// }
 
 
 // console.log(rand)
@@ -91,35 +102,96 @@ var wordGen = document.createElement('button')
 	wordGen.style.width = '20%'
    	wordGen.style.border = '2px solid blue'
    	wordGen.style.textAlign = 'center'
-   	wordGen.style.height = "100px"
-   	wordGen.style.backgroundColor = 'red'
-   	wordGen.innerHTML = "word generator"
+   	wordGen.style.height = "50px"
+   	wordGen.style.backgroundColor = 'gold'
+   	wordGen.innerHTML = "Word Generator"
    	wordGen.style.position = "relative"
    	wordGen.style.left = "1100px"
-   	wordGen.style.bottom = "200px"
+   	wordGen.style.bottom = "100px"
+    wordGen.style.fontSize = "20px"
    	var page = document.getElementsByTagName('body')[0];
    	page.appendChild(wordGen)
+	 // wordBox.push(randomWord[i] + randomHint[i])
 	
-	wordGen.addEventListener('click', function(){
- 	 wordBox.push(randomWord[i] + randomHint[i])
 
-})
+//Hint Generator 
 
+
+var hintGen = document.createElement('button')
+    hintGen.style.width = '20%'
+    hintGen.style.border = '2px solid blue'
+    hintGen.style.textAlign = 'center'
+    hintGen.style.height = "50px"
+    hintGen.style.backgroundColor = 'orange'
+    hintGen.innerHTML = "Need A Hint?"
+    hintGen.style.position = "relative"
+    hintGen.style.left = "770px"
+    hintGen.style.bottom = "0px"
+    hintGen.style.fontSize = "20px"
+    var page = document.getElementsByTagName('body')[0];
+    page.appendChild(hintGen)
+
+
+
+//WORDBOX - CONTAINER
 
 var wordBox = document.createElement('div')
-	wordBox.style.width = "25%"
+	wordBox.style.width = "30%"
 	wordBox.style.margin = '0 auto'
 	wordBox.style.border = "2px solid orange"
 	wordBox.style.backgroundColor = "lightgreen"
 	wordBox.style.height = "200px"
 	wordBox.style.position = 'relative'
 	// wrapper3.style.left = "50px"
-   wordBox.innerHTML = randomWord
-   wordBox.innerHTML = randomHint
 	wordBox.style.bottom = "200px"
+  wordBox.style.display = "block"
+  wordBox.style.fontSize = "0px"
+  wordBox.style.textAlign = "center"
+  wordBox.style.paddingTop = "50px"
 	// wrapper2.style.bottom = "200px"
 	document.body.appendChild(wordBox)
 
+  wordGen.addEventListener('click', function(){
+  wordBox.style.fontSize = "30px"
+  wordBox.innerHTML = stringDash(splitWord)
+})
+  hintGen.addEventListener('click',function(){
+  wordBox.style.fontSize = "30px"
+  wordBox.innerHTML = hintsArray[0]; 
+
+})
+
+
+
+
+//Timer 
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+  window.onload =function () {
+    var fiveMinutes = 60 * 5,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+
+
+
+//Pushing WORD and HINT into different arrays
 
 
 
@@ -179,20 +251,3 @@ var wordBox = document.createElement('div')
 // }
 
 
-
-
-
-
-
-
-
-// generator.addEventListener()('click', function() {
-
-// })
-
-
-// document.onkeydown = function(event) {
-//     var key_press = String.fromCharCode(event.keyCode);
-//    document.getElementById('wordBox').innerHTML = key_press;
- 
-// }
