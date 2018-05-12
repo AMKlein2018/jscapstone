@@ -12,12 +12,14 @@ function Word (word,hint){
 
 var one = new Word ("code", "Decipher") 
 var two = new Word ("break", "___ a Leg")
-var three = new Word ("door", "Knob" )
+var three = new Word ("Door", "Knob" )
 var four = new Word ("friend", "Opposite of Foe")
 var five = new Word ("smile", "Teeth")
 var six = new Word ("create", "Opposite of Destroy") 
-var seven = new Word ("fast", "Slow")
+var seven = new Word ("Fast", "Slow")
 var eight = new Word ("chair", "Sit")
+
+
 
 
 //Create Random Function
@@ -29,9 +31,9 @@ var randomNum = random()
 
 
 // Create Split Word Function
-splitWord = (wordArray[randomNum].split(''))
+var splitWord = wordArray[randomNum].split('')
    // console.log(splitWord)
-splitWordCompare = (wordArray[randomNum].split(''))
+var currentWord = wordArray[randomNum].split('')
 
 
 // Create StringDash Function
@@ -41,6 +43,8 @@ function stringDash(splitWord){
   }
   return splitWord.join (" ");
 }
+
+
 
 
 
@@ -65,7 +69,7 @@ wrapper.style.top = "350px"
 document.body.appendChild(wrapper)
 
 
-var alphabet = ['A', 'B', 'C', 'D', 'E', 'F','G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 
 	for (i = 0; i < 26; i++){
@@ -82,15 +86,19 @@ var alphabet = ['A', 'B', 'C', 'D', 'E', 'F','G', 'H', 'I', 'J', 'K', 'L', 'M', 
 
 		var buttons = document.getElementsByClassName('a')
 		buttons[i].addEventListener('click', function(event){
-        console.log(event.target.innerHTML)
-		})
-	}
+        for (var i = 0; i < currentWord.length; i++)
+          if (event.target.innerHTML === currentWord[i]) {
+              splitWord.splice(i, 1, currentWord[i])
+              wordBox.innerHTML = splitWord.join(" ")
 
-// document.onkeydown = function(event) {
-//     var key_press = String.fromCharCode(event.keyCode);
-//    document.getElementById('wordBox').innerHTML = key_press;
- 
-// }
+          } else {
+              
+          }
+        // console.log(event.target.innerHTML)
+
+		})
+    // console.log(splitWord)
+	}
 
 
 // console.log(rand)
@@ -157,7 +165,7 @@ var wordBox = document.createElement('div')
 })
   hintGen.addEventListener('click',function(){
   wordBox.style.fontSize = "30px"
-  wordBox.innerHTML = hintsArray[0]; 
+  wordBox.innerHTML = hintsArray[randomNum]; 
 
 })
 
