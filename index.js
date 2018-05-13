@@ -43,13 +43,7 @@ function stringDash(splitWord){
   }
   return splitWord.join (" ");
 }
-
-
-
-
-
-
-  
+ 
 
 
 // Alphabet Box
@@ -61,11 +55,11 @@ wrapper.style.margin = '0 auto'
 wrapper.style.border = "2px solid red"
 // wrapper.style.display = "grid"
 // wrapper.style.gridTemplateColumns = "auto auto auto"
-wrapper.style.backgroundColor = "tan"
+wrapper.style.backgroundColor = "lightblue"
 wrapper.style.padding = "10px"
 wrapper.style.height = "200px"
 wrapper.style.position = "relative"
-wrapper.style.top = "350px"
+wrapper.style.top = "250px"
 document.body.appendChild(wrapper)
 
 
@@ -92,7 +86,7 @@ var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
               wordBox.innerHTML = splitWord.join(" ")
 
           } else {
-              
+               
           }
         // console.log(event.target.innerHTML)
 
@@ -133,7 +127,7 @@ var hintGen = document.createElement('button')
     hintGen.style.backgroundColor = 'orange'
     hintGen.innerHTML = "Need A Hint?"
     hintGen.style.position = "relative"
-    hintGen.style.left = "770px"
+    hintGen.style.left = "765px"
     hintGen.style.bottom = "0px"
     hintGen.style.fontSize = "20px"
     var page = document.getElementsByTagName('body')[0];
@@ -147,11 +141,11 @@ var wordBox = document.createElement('div')
 	wordBox.style.width = "30%"
 	wordBox.style.margin = '0 auto'
 	wordBox.style.border = "2px solid orange"
-	wordBox.style.backgroundColor = "lightgreen"
+	wordBox.style.backgroundColor = "lightblue"
 	wordBox.style.height = "200px"
 	wordBox.style.position = 'relative'
 	// wrapper3.style.left = "50px"
-	wordBox.style.bottom = "200px"
+	wordBox.style.bottom = "300px"
   wordBox.style.display = "block"
   wordBox.style.fontSize = "0px"
   wordBox.style.textAlign = "center"
@@ -189,41 +183,19 @@ function startTimer(duration, display) {
             timer = duration;
         }
     }, 1000);
+
+
 }
 
-  window.onload =function () {
+  var existingIntervalId = 0;
+  wordGen.addEventListener('click', function () {
     var fiveMinutes = 60 * 5,
         display = document.querySelector('#time');
     startTimer(fiveMinutes, display);
-};
+
+});
 
 
-
-//Pushing WORD and HINT into different arrays
-
-
-
-// 	function pushList() { 
-// 	for (i = 0; i < 16; i++){
-// 		var answer = []
-// 		var r = rand
-// 		r.push(answer[i])
-// 	}
-// }
-// console.log(pushList)
-
-
-
-
-
-
-
-
-// Array Setup
-// 	for (var i = 0; i < w.length, i++){
-// 		answerArray[i] = "_";
-
-// 	}
 
 
 
