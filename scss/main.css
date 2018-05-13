@@ -1,0 +1,34 @@
+.header {
+  text-align: center;
+  height: 100px;
+  width: 50%;
+  text-align: center;
+  position: relative;
+  left: 400px;
+  color: blue;
+  text-shadow: 2px 1px green; }
+
+#time {
+  border: 2px solid black;
+  background-color: gold;
+  color: black; }
+
+.timeText {
+  font-size: 20px;
+  position: relative;
+  left: 675px;
+  background-color: lightblue;
+  width: 20%;
+  border: 2px solid blue;
+  text-align: center; }
+
+.usedLetters {
+  border: 2px solid green;
+  height: 200px;
+  width: 20%;
+  background-color: lightgrey;
+  font-size: 20px;
+  position: relative;
+  top: 200px; }
+
+/*# sourceMappingURL=main.css.map */

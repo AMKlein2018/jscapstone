@@ -65,6 +65,7 @@ document.body.appendChild(wrapper)
 
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
+var usedLetters = document.getElementsByClassName("usedLetters")
 
 	for (i = 0; i < 26; i++){
 		var alpha = document.createElement('div')
@@ -86,7 +87,7 @@ var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
               wordBox.innerHTML = splitWord.join(" ")
 
           } else {
-               
+              
           }
         // console.log(event.target.innerHTML)
 
@@ -167,7 +168,7 @@ var wordBox = document.createElement('div')
 
 
 //Timer 
-
+// var existingIntervalId = 0;
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
     setInterval(function () {
@@ -191,7 +192,9 @@ function startTimer(duration, display) {
   wordGen.addEventListener('click', function () {
     var fiveMinutes = 60 * 5,
         display = document.querySelector('#time');
+    //Start the Timer
     startTimer(fiveMinutes, display);
+
 
 });
 
