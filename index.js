@@ -20,6 +20,7 @@ var seven = new Word ("Fast", "Slow")
 var eight = new Word ("chair", "Sit")
 
 
+var usedLetters = document.getElementsByClassName("usedLetters")
 
 
 //Create Random Function
@@ -65,7 +66,6 @@ document.body.appendChild(wrapper)
 
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-var usedLetters = document.getElementsByClassName("usedLetters")
 
 	for (i = 0; i < 26; i++){
 		var alpha = document.createElement('div')
@@ -87,7 +87,9 @@ var usedLetters = document.getElementsByClassName("usedLetters")
               wordBox.innerHTML = splitWord.join(" ")
 
           } else {
-              
+              // var wrongArray = []
+              // wrongArray.push(event.target)
+              // usedLetters.innerHTML=wrongArray
           }
         // console.log(event.target.innerHTML)
 
@@ -160,7 +162,8 @@ var wordBox = document.createElement('div')
 })
   hintGen.addEventListener('click',function(){
   wordBox.style.fontSize = "30px"
-  wordBox.innerHTML = hintsArray[randomNum]; 
+  wordBox.innerHTML = hintsArray[randomNum];
+
 
 })
 
@@ -194,6 +197,7 @@ function startTimer(duration, display) {
         display = document.querySelector('#time');
     //Start the Timer
     startTimer(fiveMinutes, display);
+
 
 
 });
