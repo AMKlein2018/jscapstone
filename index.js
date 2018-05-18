@@ -171,12 +171,37 @@ var wordBox = document.createElement('div')
 
 
 })
-  hintGen.addEventListener('click',function(){
-  wordBox.style.fontSize = "30px"
-  wordBox.innerHTML = hintsArray[randomNum];
+
+//   hintGen.addEventListener('click',function(){
+//   wordBox.style.fontSize = "30px"
+//   wordBox.innerHTML = hintsArray[randomNum];
+
+
+// })
+ 
+
+ // NEW HINT BOX
+var hintBox = document.createElement('div')
+  hintBox.style.width = "30%"
+  hintBox.style.margin = "0 auto"
+  // hintBox.style.border = "2px solid purple"
+  // hintBox.style.backgroundColor = "lightgreen"
+  hintBox.style.height = "100px"
+  hintBox.style.position = 'relative'
+  hintBox.style.bottom = "500px"
+  hintBox.style.textAlign = "center"
+  var page = document.getElementsByTagName('body')[0];
+  page.appendChild(hintBox)
+
+ hintGen.addEventListener('click',function(){
+  hintBox.style.fontSize = "30px"
+  hintBox.innerHTML = hintsArray[randomNum];
 
 
 })
+
+
+
 
 
 var myInterval;
