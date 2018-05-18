@@ -179,7 +179,7 @@ var wordBox = document.createElement('div')
 })
 
 
-
+var myInterval;
 //Timer 
 // var existingIntervalId = 0;
 wordGen.addEventListener('click', function () {
@@ -206,11 +206,19 @@ function startTimer(duration, display) {
         display.textContent = minutes + ":" + seconds;
 
         if (--timer < 0) {
-            timer = duration;
+            stopTimer()
         } 
     } ,1000);
 
   }
+
+  function stopTimer () {
+    clearInterval (myInterval) 
+    alert('Game is Over...You Lose')
+
+  }
+
+  
 
 // setTimeout(() => alert("Game Over"), 0);
 //               alert("Game Over");
