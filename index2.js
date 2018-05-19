@@ -154,7 +154,7 @@ var wordBox = document.createElement('div')
   wordBox.style.width = "30%"
   wordBox.style.margin = '0 auto'
   wordBox.style.border = "2px solid orange"
-  wordBox.style.backgroundColor = "lightblue"
+  // wordBox.style.backgroundColor = "lightblue"
   wordBox.style.height = "200px"
   wordBox.style.position = 'relative'
   // wrapper3.style.left = "50px"
@@ -170,20 +170,20 @@ var wordBox = document.createElement('div')
   //WORD GENERATOR BUTTON FUNCTIONALITY FOR WORDBOX//
 
   wordGen.addEventListener('click', function(){
-  randomNum = random()
-  // Create Split Word Function
-  splitWord = wordArray[randomNum].split('')
-   // console.log(splitWord)
-  currentWord = wordArray[randomNum].split('')
-  wordBox.style.fontSize = "30px"
-  dashWord = stringDash(splitWord)
-  wordBox.innerHTML = dashWord
+    randomNum = random()
+    // Create Split Word Function
+    splitWord = wordArray[randomNum].split('')
+     // console.log(splitWord)
+    currentWord = wordArray[randomNum].split('')
+    wordBox.style.fontSize = "30px"
+    dashWord = stringDash(splitWord)
+    wordBox.innerHTML = dashWord
 
-  //Make Hint Invisible//
-  hintBox.style.visibility = "hidden"
+    //Make Hint Invisible//
+    hintBox.style.visibility = "hidden"
 
-  //Reset Letters in Guessed Letters Box//
-  usedLetters[0].innerHTML = ""
+    //Reset Letters in Guessed Letters Box//
+    usedLetters[0].innerHTML = ""
 
 
 })
@@ -194,11 +194,11 @@ var wordBox = document.createElement('div')
 var hintBox = document.createElement('div')
   // hintBox.style.width = "30%"
   hintBox.style.margin = "0 auto"
-  // hintBox.style.border = "2px solid purple"
+  
   // hintBox.style.backgroundColor = "lightgreen"
   hintBox.style.height = "50px"
   hintBox.style.position = 'relative'
-  hintBox.style.bottom = "770px"
+  hintBox.style.bottom = "800px"
   hintBox.style.textAlign = "center"
   var page = document.getElementsByTagName('body')[0];
   page.appendChild(hintBox)
@@ -223,10 +223,10 @@ var myInterval;
 // var existingIntervalId = 0;
 wordGen.addEventListener('click', function () {
     clearInterval(myInterval)
-    var oneMinute = 60 * 1,
+    var twoMinutes = 60 * 2,
         display = document.querySelector('#time');
 
-    startTimer(oneMinute, display);
+    startTimer(twoMinutes, display);
 
     //Start the Timer
 });
