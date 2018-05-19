@@ -4,7 +4,7 @@
 
 
 
-var myInterval;
+var myInterval, dashWord;
 wordArray = []
 hintsArray = []
 
@@ -90,13 +90,15 @@ var wrongArray = []
           if (event.target.innerHTML === currentWord[i]) {
               splitWord.splice(i, 1, currentWord[i])
               wordBox.innerHTML = splitWord.join(" ")
-              
+              checkWord()
 
           } 
-              usedLetters[0].innerHTML += event.target.innerHTML;
+      usedLetters[0].innerHTML += event.target.innerHTML;
 
     })
-      
+      //Comparing Split Word to Current Word = Player Wins!
+
+
   }
 
 
@@ -117,6 +119,7 @@ var wordGen = document.createElement('button')
     wordGen.style.fontSize = "20px"
     var page = document.getElementsByTagName('body')[0];
     page.appendChild(wordGen)
+
    // wordBox.push(randomWord[i] + randomHint[i])
   
 
@@ -167,18 +170,19 @@ var wordBox = document.createElement('div')
   currentWord = wordArray[randomNum].split('')
 
   wordBox.style.fontSize = "30px"
-  wordBox.innerHTML = stringDash(splitWord)
+  dashWord = stringDash(splitWord)
+  wordBox.innerHTML = dashWord
+
+  //Make Hint Invisible//
+  hintBox.style.visibility = "hidden"
+
+  //Reset Letters in Guessed Letters Box//
+  usedLetters[0].innerHTML = ""
 
 
 })
 
-//   hintGen.addEventListener('click',function(){
-//   wordBox.style.fontSize = "30px"
-//   wordBox.innerHTML = hintsArray[randomNum];
 
-
-// })
- 
 
  // NEW HINT BOX
 var hintBox = document.createElement('div')
@@ -196,7 +200,7 @@ var hintBox = document.createElement('div')
  hintGen.addEventListener('click',function(){
   hintBox.style.fontSize = "30px"
   hintBox.innerHTML = hintsArray[randomNum];
-
+  hintBox.style.visibility = "visible"
 
 })
 
@@ -230,9 +234,13 @@ function startTimer(duration, display) {
 
         display.textContent = minutes + ":" + seconds;
 
-        if (--timer < 0) {
+        if (timer < 30) {
+          time.style.backgroundColor = "red"
+        }
+        if (timer < 0) {
             stopTimer()
         } 
+        --timer
     } ,1000);
 
   }
@@ -240,10 +248,19 @@ function startTimer(duration, display) {
   function stopTimer () {
     clearInterval (myInterval) 
     alert('Game is Over...You Lose')
-
+    setTimeout(function(){
+      window.location.reload();
+    }, 1000)
   }
 
-  
+  function checkWord(){
+    console.log(dashWord)
+    if (splitWord.join("") === currentWord.join('')){
+      setTimeout(function() {
+        alert ("You win! Congratulations!")
+      }, 1000)
+    }
+  }
 
 // setTimeout(() => alert("Game Over"), 0);
 //               alert("Game Over");
