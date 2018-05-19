@@ -260,6 +260,7 @@ function startTimer(duration, display) {
     alert('Game is Over...You Lose')
     setTimeout(function(){
       window.location.reload();
+      usedLetters[0].innerHTML = "hidden"
     }, 1000)
   }
 
@@ -268,7 +269,9 @@ function startTimer(duration, display) {
     if (splitWord.join("") === currentWord.join('')){
       setTimeout(function() {
         alert ("You win! Congratulations!")
+        // usedLetters[0].innerHTML = "hidden"
         window.location.reload();
+        usedLetters[0].innerHTML = ""
       }, 1000)
     }
   }
